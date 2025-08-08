@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animal Toggle</title>
+  <style>
+    body {
+      background: #fff;
+      text-align: center;
+      padding-top: 100px;
+      font-family: sans-serif;
+    }
+    img {
+      width: 56px;
+      height: 56px;
+      cursor: pointer;
+      margin-right: 60px;
+    }
+    .text {
+      display: inline-block;
+      font-family: 'Young Serif', serif;
+      font-size: 60px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <img id="animalGif" src="original.gif" alt="Animal">
+  <span class="text">Your Text Here</span>
+
+  <audio id="bgMusic" src="music.mp3"></audio>
+
+  <script>
+    const gif = document.getElementById('animalGif');
+    const music = document.getElementById('bgMusic');
+
+    let playing = false;
+
+    gif.onclick = () => {
+      if (!playing) {
+        gif.src = 'dancing.gif'; // second gif
+        music.play();
+        playing = true;
+      } else {
+        gif.src = 'original.gif'; // original gif
+        music.pause();
+        music.currentTime = 0;
+        playing = false;
+      }
+    };
+  </script>
+</body>
+</html>
